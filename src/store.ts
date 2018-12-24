@@ -5,12 +5,19 @@ import {
   State as CounterState
 } from "./containers/Counter/reducer";
 
+import {
+  reducer as speechArea,
+  State as SpeechArea
+} from "./containers/SpeechArea/reducer";
+
 export type AppState = {
   counter: CounterState;
+  speechArea: SpeechArea;
 };
 
 const reducer = combineReducers<AppState>({
-  counter
+  counter,
+  speechArea
 });
 
 export default () => {
