@@ -15,7 +15,7 @@ export interface Actions {
 }
 
 const mapStateToProps = (appState: AppState) => {
-  return { records: appState.speechArea.records };
+  return appState.speechArea;
 };
 
 const mapDispatchToProps = (dispatch: any) => {
