@@ -7,19 +7,20 @@ import { AppState } from "../../store";
 
 import * as operators from "./operations";
 import SpeechArea from "../../components/SpeechArea";
+import { ResultRecord } from "../../types";
 
 export interface Actions {
-  updateValue: (v: string) => Action<string>;
+  addRecord: (v: ResultRecord) => Action<ResultRecord>;
   recording: () => Action<void>;
 }
 
 const mapStateToProps = (appState: AppState) => {
-  return { value: appState.counter.value };
+  return { records: appState.speechArea.records };
 };
 
 const mapDispatchToProps = (dispatch: any) => {
   return {
-    updateValue: (v: string) => dispatch(actions.updateValue(v)),
+    addRecord: (v: ResultRecord) => dispatch(actions.addRecord(v)),
     recording: () => dispatch(operators.recording())
   };
 };

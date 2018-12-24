@@ -38,14 +38,18 @@ export const recording = (): ThunkAction<
     recognition.start();
     recognition.onresult = (event: { results: RecognitionResult[][] }) => {
       const lastResult = event.results[event.results.length - 1];
-      if (!lastResult) {
+      if (!lastResult && !lastResult[0]) {
         return;
       }
 
+      const text = lastResult[0].transcript;
+      const confidence = lastResult[0].confidence;
       dispatch(
-        actions.updateValue(
-          getState().speechArea.value + lastResult[0].transcript
-        )
+        actions.addRecord({
+          text,
+          confidence,
+          timestamp: Date.now()
+        })
       );
     };
   };

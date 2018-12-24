@@ -1,17 +1,18 @@
 import { reducerWithInitialState } from "typescript-fsa-reducers";
 import { actions } from "./actions";
+import { ResultRecord } from "../../types";
 
 export interface State {
-  value: string;
+  records: ResultRecord[];
 }
 
 const initialState: State = {
-  value: ""
+  records: []
 };
 
 export const reducer = reducerWithInitialState(initialState).case(
-  actions.updateValue,
-  (state, value) => {
-    return { ...state, value };
+  actions.addRecord,
+  (state, record) => {
+    return { ...state, records: [...state.records, record] };
   }
 );

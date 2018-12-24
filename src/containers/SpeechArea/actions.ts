@@ -1,7 +1,8 @@
 import actionCreatorFactory from "typescript-fsa";
+import { ResultRecord } from "../../types";
 
 const actionCreator = actionCreatorFactory();
 
 export const actions = {
-  updateValue: actionCreator<string>("ACTIONS_UPDATE_VALUE")
+  addRecord: actionCreator<ResultRecord>("ADD_RECORD")
 };
