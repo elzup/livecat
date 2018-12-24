@@ -1,6 +1,4 @@
 import * as React from "react";
-import { Actions } from "../../containers/SpeechArea";
-import { State } from "../../containers/SpeechArea/reducer";
 import { Action } from "typescript-fsa";
 
 // export type Props = State & Actions;

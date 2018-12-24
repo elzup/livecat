@@ -3,7 +3,7 @@ import { Action } from "typescript-fsa";
 
 import { AppState } from "../../store";
 
-import * as operators from "../SpeechArea/operators";
+import * as operators from "../SpeechArea/operations";
 
 import SpeechArea from "..//SpeechArea";
 import { connect } from "react-redux";

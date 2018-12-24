@@ -5,7 +5,7 @@ import { Action } from "typescript-fsa";
 import { actions } from "./actions";
 import { AppState } from "../../store";
 
-import * as operators from "./operators";
+import * as operators from "./operations";
 import SpeechArea from "../../components/SpeechArea";
 
 export interface Actions {

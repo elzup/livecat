@@ -3,7 +3,7 @@ import { actions } from "./actions";
 import Counter from "../../components/Counter";
 import { AppState } from "../../store";
 import { Action } from "typescript-fsa";
-import * as operators from "./operators";
+import * as operators from "./operations";
 
 export interface Actions {
   updateValue: (v: string) => Action<string>;

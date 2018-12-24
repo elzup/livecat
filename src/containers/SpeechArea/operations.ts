@@ -17,7 +17,8 @@ const { webkitSpeechRecognition }: IWindow = <IWindow>window;
 const SR = webkitSpeechRecognition || SpeechRecognition;
 const recognition = new SR();
 
-recognition.continuous = true;
+recognition.lang = "ja-JP";
+
 recognition.onend = () => {
   recognition.start();
 };
