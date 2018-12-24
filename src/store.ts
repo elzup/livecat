@@ -5,19 +5,12 @@ import {
   State as CounterState
 } from "./containers/Counter/reducer";
 
-import {
-  reducer as timer,
-  State as TimerState
-} from "./containers/Timer/reducer";
-
 export type AppState = {
   counter: CounterState;
-  timer: TimerState;
 };
 
 const reducer = combineReducers<AppState>({
-  counter,
-  timer
+  counter
 });
 
 export default () => {

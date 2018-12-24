@@ -1,6 +1,5 @@
 import * as React from "react";
-import { Action } from "typescript-fsa";
-import Counter from "../Counter";
+import MainPage from "../MainPage";
 
 export interface Actions {}
 
@@ -9,7 +8,7 @@ type Props = {};
 const App: React.SFC<Props> = props => {
   return (
     <div>
-      <Counter />
+      <MainPage />
     </div>
   );
 };
