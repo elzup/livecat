@@ -1,7 +1,8 @@
 {
-  "name": "cra-ts",
+  "name": "livecat",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://livecat.anozon.me",
   "dependencies": {
     "@types/jest": "23.3.10",
     "@types/node": "10.12.12",
