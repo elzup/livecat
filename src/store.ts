@@ -1,4 +1,7 @@
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux'
+import { persistReducer, persistStore } from 'redux-persist'
+import storage from 'redux-persist/lib/storage' // defaults to localStorage for web and AsyncStorage for react-native
+
 import thunk from 'redux-thunk'
 import {
   reducer as counter,
@@ -15,10 +18,17 @@ export type AppState = {
   speechArea: SpeechArea
 }
 
-const reducer = combineReducers<AppState>({
+const rootReducer = combineReducers<AppState>({
   counter,
   speechArea,
 })
+
+const persistConfig = {
+  key: 'root',
+  storage,
+}
+
+const persistedReducer = persistReducer(persistConfig, rootReducer)
 
 export default () => {
   const middleware = [thunk]
@@ -34,6 +44,7 @@ export default () => {
       )
     : compose(applyMiddleware(...middleware))
 
-  const store = createStore(reducer, composer)
-  return store
+  const store = createStore(persistedReducer, composer)
+  const persistor = persistStore(store)
+  return { store, persistor }
 }
