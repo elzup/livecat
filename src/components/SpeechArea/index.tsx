@@ -1,33 +1,33 @@
-import * as React from "react";
+import moment from 'moment'
+import * as React from 'react'
 import {
+  Bar,
   BarChart,
   CartesianGrid,
+  Legend,
+  Tooltip,
   XAxis,
   YAxis,
-  Tooltip,
-  Legend,
-  Bar
-} from "recharts";
-import { State } from "../../containers/SpeechArea/reducer";
-import { Actions } from "../../containers/SpeechArea";
-import moment from "moment";
+} from 'recharts'
+import { Actions } from '../../containers/SpeechArea'
+import { State } from '../../containers/SpeechArea/reducer'
 
-export type Props = State & Actions;
+export type Props = State & Actions
 
 const SpeechArea: React.SFC<Props> = (props: Props) => {
   if (!props.startTime || !props.endTime) {
-    return <p>loading...</p>;
+    return <p>loading...</p>
   }
-  const m = moment(props.startTime);
-  const end = moment(props.endTime);
-  const data = [] as any;
+  const m = moment(props.startTime)
+  const end = moment(props.endTime)
+  const data = [] as any
   while (m.isBefore(end)) {
-    const point = props.talkPointsByMin[m.format("YYYY-MM-DDTHH:mm")] || 0;
-    data.push({ point, timestamp: m.format("HH:mm") });
-    m.add(1, "minutes");
+    const point = props.talkPointsByMin[m.format('YYYY-MM-DDTHH:mm')] || 0
+    data.push({ point, timestamp: m.format('HH:mm') })
+    m.add(1, 'minutes')
   }
 
-  props.talkPointsByMin;
+  props.talkPointsByMin
   return (
     <div>
       <div>
@@ -47,7 +47,7 @@ const SpeechArea: React.SFC<Props> = (props: Props) => {
         </BarChart>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default SpeechArea;
+export default SpeechArea

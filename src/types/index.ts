@@ -1,5 +1,5 @@
 export type ResultRecord = {
-  text: string;
-  confidence: number;
-  timestamp: number;
-};
+  text: string
+  confidence: number
+  timestamp: number
+}

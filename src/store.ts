@@ -1,39 +1,39 @@
-import { combineReducers, createStore, applyMiddleware, compose } from "redux";
-import thunk from "redux-thunk";
+import { applyMiddleware, combineReducers, compose, createStore } from 'redux'
+import thunk from 'redux-thunk'
 import {
   reducer as counter,
-  State as CounterState
-} from "./containers/Counter/reducer";
+  State as CounterState,
+} from './containers/Counter/reducer'
 
 import {
   reducer as speechArea,
-  State as SpeechArea
-} from "./containers/SpeechArea/reducer";
+  State as SpeechArea,
+} from './containers/SpeechArea/reducer'
 
 export type AppState = {
-  counter: CounterState;
-  speechArea: SpeechArea;
-};
+  counter: CounterState
+  speechArea: SpeechArea
+}
 
 const reducer = combineReducers<AppState>({
   counter,
-  speechArea
-});
+  speechArea,
+})
 
 export default () => {
-  const middleware = [thunk];
+  const middleware = [thunk]
 
   const devtool =
     (window as any).__REDUX_DEVTOOLS_EXTENSION__ &&
-    (window as any).__REDUX_DEVTOOLS_EXTENSION__();
+    (window as any).__REDUX_DEVTOOLS_EXTENSION__()
 
   const composer = devtool
     ? compose(
         applyMiddleware(...middleware),
         devtool
       )
-    : compose(applyMiddleware(...middleware));
+    : compose(applyMiddleware(...middleware))
 
-  const store = createStore(reducer, composer);
-  return store;
-};
+  const store = createStore(reducer, composer)
+  return store
+}

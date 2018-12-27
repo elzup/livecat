@@ -1,8 +1,8 @@
-import actionCreatorFactory from "typescript-fsa";
-import { ResultRecord } from "../../types";
+import actionCreatorFactory from 'typescript-fsa'
+import { ResultRecord } from '../../types'
 
-const actionCreator = actionCreatorFactory();
+const actionCreator = actionCreatorFactory()
 
 export const actions = {
-  addRecord: actionCreator<ResultRecord>("ADD_RECORD")
-};
+  addRecord: actionCreator<ResultRecord>('ADD_RECORD'),
+}

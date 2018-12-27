@@ -1,8 +1,8 @@
-import actionCreatorFactory from "typescript-fsa";
+import actionCreatorFactory from 'typescript-fsa'
 
-const actionCreator = actionCreatorFactory();
+const actionCreator = actionCreatorFactory()
 
 export const actions = {
-  updateValue: actionCreator<string>("ACTIONS_UPDATE_VALUE"),
-  increment: actionCreator<{ amount: string }>("ACTIONS_INCREMENT")
-};
+  updateValue: actionCreator<string>('ACTIONS_UPDATE_VALUE'),
+  increment: actionCreator<{ amount: string }>('ACTIONS_INCREMENT'),
+}

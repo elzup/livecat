@@ -1,8 +1,8 @@
-import * as React from "react";
-import { Actions } from "../../containers/Counter";
-import { State } from "../../containers/Counter/reducer";
+import * as React from 'react'
+import { Actions } from '../../containers/Counter'
+import { State } from '../../containers/Counter/reducer'
 
-type Props = State & Actions;
+type Props = State & Actions
 
 const Counter: React.SFC<Props> = (props: Props) => {
   return (
@@ -18,13 +18,13 @@ const Counter: React.SFC<Props> = (props: Props) => {
       <br />
       <button
         onClick={() => {
-          props.addPrefix();
+          props.addPrefix()
         }}
       >
         double!
       </button>
     </div>
-  );
-};
+  )
+}
 
-export default Counter;
+export default Counter

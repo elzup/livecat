@@ -1,18 +1,18 @@
-import { reducerWithInitialState } from "typescript-fsa-reducers";
-import { actions } from "./actions";
+import { reducerWithInitialState } from 'typescript-fsa-reducers'
+import { actions } from './actions'
 
 export interface State {
-  value: string;
+  value: string
 }
 
 const initialState: State = {
-  value: ""
-};
+  value: '',
+}
 
 export const reducer = reducerWithInitialState(initialState)
   .case(actions.updateValue, (state, value) => {
-    return { ...state, value };
+    return { ...state, value }
   })
   .case(actions.increment, (state, payload) => {
-    return { ...state, value: state.value + payload.amount };
-  });
+    return { ...state, value: state.value + payload.amount }
+  })
