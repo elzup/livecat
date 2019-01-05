@@ -17,6 +17,8 @@ export type ResultRecord = {
   timestamp: number
 }
 
+export type GraphRecord = { point: number; timestamp: string }
+
 export type Log = {
   id: string
   count: number

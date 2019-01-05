@@ -4,7 +4,7 @@ import { Log } from '../../types'
 import * as actions from './actions'
 
 export interface State {
-  [id: number]: Log
+  [id: string]: Log
 }
 
 const initialState: State = {} as { [id: number]: Log }

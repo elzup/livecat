@@ -1,15 +1,14 @@
 import * as React from 'react'
-import { Action } from 'typescript-fsa'
 
 import { State } from '../../types'
 
-import * as operators from '../SpeechArea/operations'
+import { recording } from '../SpeechArea/operations'
 
 import { connect } from 'react-redux'
 import SpeechArea from '../SpeechArea'
 
 export interface Actions {
-  recording: () => Action<void>
+  recording: () => void
 }
 type Props = Actions
 
@@ -18,7 +17,6 @@ class MainPage extends React.Component<Props> {
     this.props.recording()
   }
   render() {
-    const { props } = this
     return (
       <div>
         <h4>SpeechArea</h4>
@@ -30,13 +28,7 @@ class MainPage extends React.Component<Props> {
 
 const mapStateToProps = (appState: State) => ({})
 
-const mapDispatchToProps = (dispatch: any) => {
-  return {
-    recording: () => dispatch(operators.recording()),
-  }
-}
-
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  { recording }
 )(MainPage)
