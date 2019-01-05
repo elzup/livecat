@@ -3,7 +3,7 @@ import { GraphRecord, ThunkAction } from '../../types'
 import moment from 'moment'
 import { saveLog } from '../LogById/operations'
 import { getLogOrCreateBy } from '../LogById/selectors'
-import { updateArea } from './actions'
+import { updateArea, updateLastText } from './actions'
 
 interface IWindow extends Window {
   webkitSpeechRecognition: any
@@ -42,6 +42,7 @@ export const recording = (): ThunkAction => {
       const text = lastResult[0].transcript
       const confidence = lastResult[0].confidence
       await dispatch(saveLog(text, confidence))
+      await dispatch(updateLastText(text))
       dispatch(updateGraph())
     }
   }

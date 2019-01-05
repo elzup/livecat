@@ -1,4 +1,3 @@
-import moment from 'moment'
 import * as React from 'react'
 import {
   Bar,
@@ -13,6 +12,7 @@ import { GraphRecord } from '../../types'
 
 export type Props = {
   graphData: GraphRecord[]
+  lastText: string
 }
 export interface Actions {}
 
@@ -23,6 +23,7 @@ const SpeechArea: React.SFC<Props> = (props: Props) => {
   return (
     <div>
       <div>
+        <p>文字起こし: {props.lastText}</p>
         <BarChart width={730} height={250} data={props.graphData}>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="timestamp" />

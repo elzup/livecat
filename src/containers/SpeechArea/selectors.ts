@@ -8,3 +8,7 @@ export const getLog = (state: State, id: string): Log | undefined => {
 export const getGraphData = (state: State): GraphRecord[] => {
   return state.speechArea.graphData || []
 }
+
+export const getLastText = (state: State): string => {
+  return state.speechArea.lastText
+}
