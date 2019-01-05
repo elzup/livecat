@@ -1,4 +1,4 @@
-import { GraphData, State } from '../../types'
+import { GraphData, GraphType, State } from '../../types'
 import { Log } from '../../types'
 
 export const getLog = (state: State, id: string): Log | undefined => {
@@ -11,4 +11,7 @@ export const getGraphData = (state: State): GraphData => {
 
 export const getLastText = (state: State): string => {
   return state.speechArea.lastText
+}
+export const getSelectedGraph = (state: State): GraphType => {
+  return state.speechArea.selectedGraph
 }

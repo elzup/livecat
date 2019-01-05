@@ -8,13 +8,14 @@ import {
   XAxis,
   YAxis,
 } from 'recharts'
-import { GraphData } from '../../types'
+import { GraphData, GraphType } from '../../types'
 
 export type Props = {
   graphData: GraphData
   lastText: string
+  selectedGraph: GraphType
+  onSelectGraph: (string: GraphType) => any
 }
-export interface Actions {}
 
 const SpeechArea: React.SFC<Props> = (props: Props) => {
   if (props.graphData.length === 0) {
@@ -33,6 +34,10 @@ const SpeechArea: React.SFC<Props> = (props: Props) => {
           <Bar dataKey="point" fill="#8884d8" />
         </BarChart>
       </div>
+
+      <button onClick={() => props.onSelectGraph('3hour')}>3hour</button>
+      <button onClick={() => props.onSelectGraph('1hour')}>1hour</button>
+      <button onClick={() => props.onSelectGraph('30min')}>30min</button>
     </div>
   )
 }
