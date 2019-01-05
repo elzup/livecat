@@ -1,4 +1,4 @@
-import { ThunkAction } from '../../types'
+import { GraphRecord, ThunkAction } from '../../types'
 
 import moment from 'moment'
 import { saveLog } from '../LogById/operations'
@@ -51,14 +51,14 @@ export const updateGraph = (): ThunkAction => {
   return (dispatch, getState) => {
     const m = moment().subtract(3, 'hour')
     const end = moment()
-    const data = [] as any
+    const data = [] as GraphRecord[]
     const state = getState()
     while (m.isBefore(end)) {
       const id = m.format('YYYY-MM-DDTHH:mm')
       const log = getLogOrCreateBy(state, id)
       data.push({
         point: log.point,
-        // confident: log.confidentAverage,
+        confidentAverage: log.confidentAverage,
         timestamp: m.format('HH:mm'),
       })
       m.add(1, 'minutes')

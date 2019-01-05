@@ -30,7 +30,6 @@ const SpeechArea: React.SFC<Props> = (props: Props) => {
           <Tooltip />
           <Legend />
           <Bar dataKey="point" fill="#8884d8" />
-          {/* <Bar dataKey="confident" fill="#8884d8" /> */}
         </BarChart>
       </div>
     </div>

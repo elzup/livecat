@@ -17,7 +17,11 @@ export type ResultRecord = {
   timestamp: number
 }
 
-export type GraphRecord = { point: number; timestamp: string }
+export type GraphRecord = {
+  point: number
+  timestamp: string
+  confidentAverage: number
+}
 
 export type Log = {
   id: string
