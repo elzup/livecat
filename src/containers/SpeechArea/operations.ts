@@ -1,9 +1,8 @@
-import { GraphRecord, ThunkAction } from '../../types'
+import { GraphData, ThunkAction } from '../../types'
 
-import moment from 'moment'
+import { updateGraph } from '../GraphDataById/operations'
 import { saveLog } from '../LogById/operations'
-import { getLogOrCreateBy } from '../LogById/selectors'
-import { updateArea, updateLastText } from './actions'
+import { updateLastText } from './actions'
 
 interface IWindow extends Window {
   webkitSpeechRecognition: any
@@ -45,25 +44,5 @@ export const recording = (): ThunkAction => {
       await dispatch(updateLastText(text))
       dispatch(updateGraph())
     }
-  }
-}
-
-export const updateGraph = (): ThunkAction => {
-  return (dispatch, getState) => {
-    const m = moment().subtract(3, 'hour')
-    const end = moment()
-    const data = [] as GraphRecord[]
-    const state = getState()
-    while (m.isBefore(end)) {
-      const id = m.format('YYYY-MM-DDTHH:mm')
-      const log = getLogOrCreateBy(state, id)
-      data.push({
-        point: log.point,
-        confidentAverage: log.confidentAverage,
-        timestamp: m.format('HH:mm'),
-      })
-      m.add(1, 'minutes')
-    }
-    dispatch(updateArea(data))
   }
 }

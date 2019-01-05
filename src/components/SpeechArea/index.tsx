@@ -8,10 +8,10 @@ import {
   XAxis,
   YAxis,
 } from 'recharts'
-import { GraphRecord } from '../../types'
+import { GraphData } from '../../types'
 
 export type Props = {
-  graphData: GraphRecord[]
+  graphData: GraphData
   lastText: string
 }
 export interface Actions {}

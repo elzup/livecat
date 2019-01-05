@@ -10,6 +10,7 @@ export type ThunkAction = _ThunkAction<
   AnyAction
 >
 
+export type GraphType = '3hour' | '1hour' | '30min'
 export type State = AppState
 export type ResultRecord = {
   text: string
@@ -22,6 +23,8 @@ export type GraphRecord = {
   timestamp: string
   confidentAverage: number
 }
+
+export type GraphData = GraphRecord[]
 
 export type Log = {
   id: string
