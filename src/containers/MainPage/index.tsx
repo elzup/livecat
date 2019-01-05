@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Action } from 'typescript-fsa'
 
-import { AppState } from '../../store'
+import { State } from '../../types'
 
 import * as operators from '../SpeechArea/operations'
 
@@ -28,7 +28,7 @@ class MainPage extends React.Component<Props> {
   }
 }
 
-const mapStateToProps = (appState: AppState) => ({})
+const mapStateToProps = (appState: State) => ({})
 
 const mapDispatchToProps = (dispatch: any) => {
   return {

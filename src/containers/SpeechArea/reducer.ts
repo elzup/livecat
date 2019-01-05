@@ -1,15 +1,7 @@
 import moment from 'moment'
 import { reducerWithInitialState } from 'typescript-fsa-reducers'
-import { ResultRecord } from '../../types'
+import { ConfidenceLib, ResultRecord } from '../../types'
 import { actions } from './actions'
-
-type ConfidenceLib = {
-  [key: string]: {
-    sum: number
-    count: number
-    average: number
-  }
-}
 
 // 1分で何文字喋ったか
 export interface State {

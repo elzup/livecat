@@ -1,7 +1,7 @@
 import { AnyAction } from 'redux'
 import { actions } from './actions'
 
-import { AppState } from '../../store'
+import { State } from '../../types'
 
 import { ThunkAction } from 'redux-thunk'
 
@@ -27,12 +27,7 @@ recognition.onerror = (error: any) => {
   console.log('recognition reload')
 }
 
-export const recording = (): ThunkAction<
-  void,
-  AppState,
-  undefined,
-  AnyAction
-> => {
+export const recording = (): ThunkAction<void, State, undefined, AnyAction> => {
   return (dispatch, getState) => {
     console.log('register')
     recognition.start()

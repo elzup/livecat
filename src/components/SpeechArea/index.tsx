@@ -9,10 +9,17 @@ import {
   XAxis,
   YAxis,
 } from 'recharts'
-import { Actions } from '../../containers/SpeechArea'
-import { State } from '../../containers/SpeechArea/reducer'
+import { ConfidenceLib, ResultRecord } from '../../types'
 
-export type Props = State & Actions
+export type Props = {
+  addRecord: (v: ResultRecord) => void
+  records: ResultRecord[]
+  startTime: number | null
+  endTime: number | null
+  talkPointsByMin: { [key: string]: number }
+  confidencePointsByMin: ConfidenceLib
+}
+export interface Actions {}
 
 const SpeechArea: React.SFC<Props> = (props: Props) => {
   if (!props.startTime || !props.endTime) {
