@@ -13,12 +13,12 @@ export const saveLog = (text: string, confidence: number): ThunkAction => {
     const min = moment(now).format('YYYY-MM-DDTHH:mm')
     const log = getLogOrCreateBy(getState(), min)
     const count = log.count + 1
-    const confidentialSum = log.confidentialSum + confidence
+    const confidentSum = log.confidentSum + confidence
     const newLog = {
       ...log,
       count,
-      confidentialSum,
-      confidentialAverage: confidentialSum / count,
+      confidentSum,
+      confidentAverage: confidentSum / count,
       point: log.point + text.length,
     }
     await dispatch(updateLog([newLog]))

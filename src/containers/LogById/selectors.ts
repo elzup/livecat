@@ -13,8 +13,8 @@ export const getLogOrCreateBy = (state: State, id: string): Log => {
   return {
     id,
     count: 0,
-    confidentialSum: 0,
-    confidentialAverage: 0,
+    confidentSum: 0,
+    confidentAverage: 0,
     point: 0,
   }
 }

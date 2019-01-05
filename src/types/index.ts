@@ -22,8 +22,8 @@ export type GraphRecord = { point: number; timestamp: string }
 export type Log = {
   id: string
   count: number
-  confidentialSum: number
-  confidentialAverage: number
+  confidentSum: number
+  confidentAverage: number
   point: number
 }
 

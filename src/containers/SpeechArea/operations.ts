@@ -58,7 +58,7 @@ export const updateGraph = (): ThunkAction => {
       const log = getLogOrCreateBy(state, id)
       data.push({
         point: log.point,
-        // confident: log.confidentialAverage,
+        // confident: log.confidentAverage,
         timestamp: m.format('HH:mm'),
       })
       m.add(1, 'minutes')
