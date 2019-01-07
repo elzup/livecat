@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 
-import { GraphType, State } from '../../types'
+import { State } from '../../types'
 
 import SpeechArea from '../../components/SpeechArea'
 import { selectGraph } from './actions'
