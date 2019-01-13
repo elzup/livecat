@@ -17,10 +17,8 @@ const SR = webkitSpeechRecognition || SpeechRecognition
 const recognition = new SR()
 
 recognition.lang = 'ja-JP'
+recognition.continuous = false
 
-recognition.onend = () => {
-  recognition.start()
-}
 recognition.onerror = (error: any) => {
   console.error(error)
   console.log('recognition reload')
@@ -30,6 +28,12 @@ export const recording = (): ThunkAction => {
   return (dispatch, getState) => {
     console.log('register')
     recognition.start()
+    recognition.onend = () => {
+      console.log('try access lastText')
+      console.log(getState().speechArea.lastText)
+      console.log('↑')
+      recognition.start()
+    }
     recognition.onresult = async (event: {
       results: RecognitionResult[][]
     }) => {
