@@ -20,7 +20,8 @@ export type ResultRecord = {
 
 export type GraphRecord = {
   point: number
-  timestamp: string
+  timestamp: number
+  timestampStr: string
   confidentAverage: number
 }
 

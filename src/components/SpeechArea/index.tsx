@@ -1,3 +1,4 @@
+import moment from 'moment'
 import * as React from 'react'
 import {
   Bar,
@@ -27,9 +28,15 @@ const SpeechArea: React.SFC<Props> = (props: Props) => {
         <p>文字起こし: {props.lastText}</p>
         <BarChart width={730} height={250} data={props.graphData}>
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="timestamp" />
-          <YAxis />
-          <Tooltip />
+          <XAxis
+            dataKey="timestamp"
+            type="number"
+            domain={['auto', 'maxValue']}
+            tickFormatter={v => moment(v).format('HH:mm')}
+          />
+          <YAxis dataKey="point" />
+          <Tooltip labelFormatter={v => moment(v).format('HH:mm')} />
+
           <Legend />
           <Bar dataKey="point" fill="#8884d8" />
         </BarChart>

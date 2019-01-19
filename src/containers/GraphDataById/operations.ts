@@ -5,7 +5,9 @@ import { updateGraphData } from './actions'
 
 export const updateGraph = (): ThunkAction => {
   return (dispatch, getState) => {
-    const m = moment().subtract(3, 'hour')
+    const m = moment()
+      .subtract(3, 'hour')
+      .startOf('minute')
     const end = moment()
     const hourAgo = moment().subtract(1, 'hour')
     const min30Ago = moment().subtract(30, 'minute')
@@ -19,7 +21,8 @@ export const updateGraph = (): ThunkAction => {
       const newLog = {
         point: log.point,
         confidentAverage: log.confidentAverage,
-        timestamp: m.format('HH:mm'),
+        timestamp: m.unix() * 1000,
+        timestampStr: m.format('HH:mm'),
       }
       dataH3.push(newLog)
       if (m.isAfter(hourAgo)) {
