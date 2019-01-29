@@ -1,5 +1,5 @@
 import moment from 'moment'
-import { GraphData, Log, ThunkAction } from '../../types'
+import { GraphData, ThunkAction } from '../../types'
 import { getLogOrCreateBy } from '../LogById/selectors'
 import { updateGraphData } from './actions'
 
@@ -15,6 +15,7 @@ export const updateGraph = (): ThunkAction => {
     const dataH1 = [] as GraphData
     const dataM30 = [] as GraphData
     const state = getState()
+
     while (m.isBefore(end)) {
       const id = m.format('YYYY-MM-DDTHH:mm')
       const log = getLogOrCreateBy(state, id)

@@ -15,7 +15,7 @@ export type Props = {
   graphData: GraphData
   lastText: string
   selectedGraph: GraphType
-  onSelectGraph: (string: GraphType) => any
+  onSelectGraph: (s: GraphType) => void
 }
 
 const SpeechArea: React.SFC<Props> = (props: Props) => {
