@@ -42,3 +42,7 @@ export type ConfidenceLib = {
     average: number
   }
 }
+
+export type RecorderState = {
+  isRecording: boolean
+}

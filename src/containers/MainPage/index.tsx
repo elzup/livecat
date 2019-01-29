@@ -5,6 +5,7 @@ import { State } from '../../types'
 import { recording } from '../SpeechArea/operations'
 
 import { connect } from 'react-redux'
+import RecordingControler from '../Recorder/RecorderControler'
 import SpeechArea from '../SpeechArea'
 
 export interface Actions {
@@ -21,6 +22,7 @@ class MainPage extends React.Component<Props> {
       <div>
         <h4>SpeechArea</h4>
         <SpeechArea />
+        <RecordingControler />
       </div>
     )
   }
