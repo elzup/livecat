@@ -2,6 +2,7 @@ import { GraphData, ThunkAction } from '../../types'
 
 import { updateGraph } from '../GraphDataById/operations'
 import { saveLog } from '../LogById/operations'
+import { getIsRecording } from '../Recorder/selectors'
 import { updateLastText } from './actions'
 
 interface IWindow extends Window {
@@ -20,8 +21,14 @@ recognition.lang = 'ja-JP'
 recognition.continuous = false
 
 recognition.onerror = (error: any) => {
-  console.error(error)
+  // console.error(error)
   console.log('recognition reload')
+}
+
+export const recordingStop = (): ThunkAction => {
+  return (dispatch, getState) => {
+    recognition.stop()
+  }
 }
 
 export const recording = (): ThunkAction => {
@@ -29,9 +36,9 @@ export const recording = (): ThunkAction => {
     console.log('register')
     recognition.start()
     recognition.onend = () => {
-      console.log('try access lastText')
-      console.log(getState().speechArea.lastText)
-      console.log('↑')
+      if (!getIsRecording(getState())) {
+        return
+      }
       recognition.start()
     }
     recognition.onresult = async (event: {

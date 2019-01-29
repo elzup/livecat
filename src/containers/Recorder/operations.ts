@@ -1,10 +1,25 @@
 import { ThunkAction } from '../../types'
+import { recording, recordingStop } from '../SpeechArea/operations'
 import { updateRecording } from './actions'
 
-export const stopRecording = () => updateIsRecording(false)
-export const startRecording = () => updateIsRecording(true)
+export const startRecording = (): ThunkAction => {
+  return async (dispatch, getState) => {
+    dispatch(updateStartRecording())
+    dispatch(recording())
+  }
+}
+
+export const stopRecording = (): ThunkAction => {
+  return async (dispatch, getState) => {
+    await dispatch(updateStopRecording())
+    dispatch(recordingStop())
+  }
+}
+
+export const updateStopRecording = () => updateIsRecording(false)
+export const updateStartRecording = () => updateIsRecording(true)
 export const updateIsRecording = (isRecording: boolean): ThunkAction => {
   return async (dispatch, getState) => {
-    dispatch(updateRecording({ isRecording }))
+    await dispatch(updateRecording({ isRecording }))
   }
 }
