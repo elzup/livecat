@@ -2,6 +2,7 @@ import { AppState } from './state'
 
 import { AnyAction } from 'redux'
 import { ThunkAction as _ThunkAction } from 'redux-thunk'
+import SpeechArea from '../components/SpeechArea'
 
 export type ThunkAction = _ThunkAction<
   void | Promise<void>,
@@ -45,4 +46,20 @@ export type ConfidenceLib = {
 
 export type RecorderState = {
   isRecording: boolean
+}
+
+export type LiveArchive = {
+  id: number
+  label: string
+  startTime: number
+  endTime: number
+  logById: { [id: string]: Log }
+  graph30m: GraphData
+  graph1h: GraphData
+  graph3h: GraphData
+}
+
+export type SpeechArea = {
+  lastText: string
+  selectedGraph: GraphType
 }

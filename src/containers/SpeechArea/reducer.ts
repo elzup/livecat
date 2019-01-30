@@ -1,13 +1,10 @@
 import moment from 'moment'
 import { reducerWithInitialState } from 'typescript-fsa-reducers'
-import { GraphData, GraphType } from '../../types'
+import { GraphData, GraphType, SpeechArea } from '../../types'
 import * as actions from './actions'
 
 // 1分で何文字喋ったか
-export interface State {
-  lastText: string
-  selectedGraph: GraphType
-}
+export type State = SpeechArea
 
 const initialState: State = {
   lastText: '',
