@@ -1,4 +1,5 @@
 import { ThunkAction } from '../../types'
+import { archiveLive } from '../LiveArchiveById/operations'
 import { recording, recordingStop } from '../SpeechArea/operations'
 import { updateRecording } from './actions'
 
@@ -12,6 +13,7 @@ export const startRecording = (): ThunkAction => {
 export const stopRecording = (): ThunkAction => {
   return async (dispatch, getState) => {
     await dispatch(updateStopRecording())
+    dispatch(archiveLive())
     dispatch(recordingStop())
   }
 }

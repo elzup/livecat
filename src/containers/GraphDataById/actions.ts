@@ -7,3 +7,5 @@ export const updateGraphData = actionCreator<{
   id: GraphType
   data: GraphData
 }>('ACTIONS_UPDATE_GRAPH_DATA')
+
+export const resetGraphData = actionCreator('resetGraphData')

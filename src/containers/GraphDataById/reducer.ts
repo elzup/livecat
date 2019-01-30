@@ -1,6 +1,6 @@
 import _ from 'lodash'
 import { reducerWithInitialState } from 'typescript-fsa-reducers'
-import { GraphData, GraphType, Log } from '../../types'
+import { GraphData } from '../../types'
 import * as actions from './actions'
 
 export interface State {
@@ -9,12 +9,13 @@ export interface State {
 
 const initialState: State = {} as State
 
-export const reducer = reducerWithInitialState(initialState).case(
-  actions.updateGraphData,
-  (state, { id, data }) => {
+export const reducer = reducerWithInitialState(initialState)
+  .case(actions.updateGraphData, (state, { id, data }) => {
     return {
       ...state,
       [id]: data,
     }
-  }
-)
+  })
+  .case(actions.resetGraphData, () => {
+    return initialState
+  })

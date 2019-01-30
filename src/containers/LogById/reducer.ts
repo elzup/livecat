@@ -9,12 +9,11 @@ export interface State {
 
 const initialState: State = {} as { [id: number]: Log }
 
-export const reducer = reducerWithInitialState(initialState).case(
-  actions.updateLog,
-  (state, objects) => {
+export const reducer = reducerWithInitialState(initialState)
+  .case(actions.updateLog, (state, objects) => {
     return {
       ...state,
       ..._.keyBy(objects, 'id'),
     }
-  }
-)
+  })
+  .case(actions.resetLog, () => initialState)
