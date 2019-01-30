@@ -15,8 +15,8 @@ export const startRecording = (): ThunkAction => {
 export const stopRecording = (): ThunkAction => {
   return async (dispatch, getState) => {
     await dispatch(updateStopRecording())
+    await dispatch(recordingStop())
     dispatch(archiveLive())
-    dispatch(recordingStop())
   }
 }
 

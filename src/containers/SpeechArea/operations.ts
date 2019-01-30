@@ -26,7 +26,7 @@ recognition.onerror = (error: any) => {
 }
 
 export const recordingStop = (): ThunkAction => {
-  return (dispatch, getState) => {
+  return async (dispatch, getState) => {
     recognition.stop()
   }
 }
@@ -48,7 +48,9 @@ export const recording = (): ThunkAction => {
       if (!lastResult && !lastResult[0]) {
         return
       }
-
+      if (!getIsRecording(getState())) {
+        return
+      }
       const text = lastResult[0].transcript
       const confidence = lastResult[0].confidence
       await dispatch(saveLog(text, confidence))
