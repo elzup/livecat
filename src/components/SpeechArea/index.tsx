@@ -20,7 +20,7 @@ export type Props = {
 
 const SpeechArea: React.SFC<Props> = (props: Props) => {
   if (props.graphData.length === 0) {
-    return <p>loading...</p>
+    return null
   }
   return (
     <div>

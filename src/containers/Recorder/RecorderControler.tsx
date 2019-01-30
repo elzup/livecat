@@ -13,11 +13,18 @@ export type Props = {
 }
 
 const RecordingControler: React.SFC<Props> = (props: Props) => {
+  if (props.isRecording) {
+    return (
+      <div>
+        <h5>{'レコーディング中'}</h5>
+        <button onClick={props.stopRecording}>ストップ</button>
+      </div>
+    )
+  }
   return (
     <div>
-      <h5>{props.isRecording ? '録音中' : '停止中'}</h5>
+      <h5>{'待機中'}</h5>
       <button onClick={props.startRecording}>スタート</button>
-      <button onClick={props.stopRecording}>ストップ</button>
     </div>
   )
 }

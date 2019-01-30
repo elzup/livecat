@@ -3,6 +3,15 @@ import { ThunkAction } from '../../types'
 import { archiveLive } from '../LiveArchiveById/operations'
 import { recording, recordingStop } from '../SpeechArea/operations'
 import { updateRecording } from './actions'
+import { getIsRecording } from './selectors'
+
+export const syncRecording = (): ThunkAction => {
+  return async (dispatch, getState) => {
+    if (getIsRecording(getState())) {
+      dispatch(recording())
+    }
+  }
+}
 
 export const startRecording = (): ThunkAction => {
   return async (dispatch, getState) => {
