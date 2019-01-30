@@ -8,6 +8,7 @@ export type State = RecorderState
 
 const initialState = {
   isRecording: false,
+  startTime: 0,
 }
 
 export const reducer = reducerWithInitialState(initialState).case(

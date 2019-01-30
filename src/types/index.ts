@@ -46,10 +46,11 @@ export type ConfidenceLib = {
 
 export type RecorderState = {
   isRecording: boolean
+  startTime: number
 }
 
 export type LiveArchive = {
-  id: number
+  id: string
   label: string
   startTime: number
   endTime: number

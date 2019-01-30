@@ -7,16 +7,19 @@ import {
   get3HourGraphData,
 } from '../GraphDataById/selectors'
 import { resetLog } from '../LogById/actions'
+import { getStartTime } from '../Recorder/selectors'
 import { registerLiveArchive } from './actions'
 
 export const archiveLive = (): ThunkAction => {
   return async (dispatch, getState) => {
     // reset
     const state = getState()
+    const startTime = getStartTime(state)
+    const m = moment(startTime)
     const liveArchive: LiveArchive = {
-      id: 0,
-      label: 'test',
-      startTime: 0, // TODO
+      id: m.format('YYYY-MM-DD HH:mm:ss'),
+      label: m.format('YYYY-MM-DD HH:mm:ss'),
+      startTime,
       endTime: +moment(),
       logById: state.logById,
       graph30m: get30MinGraphData(state),
