@@ -64,3 +64,7 @@ export type SpeechArea = {
   lastText: string
   selectedGraph: GraphType
 }
+
+export type MainPageState = {
+  selectedLiveArchiveId: string | null
+}
