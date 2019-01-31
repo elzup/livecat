@@ -1,17 +1,22 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
+import { MuiThemeProvider } from '@material-ui/core'
 import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
 import App from './containers/App'
 import * as serviceWorker from './serviceWorker'
 import configureStore from './store'
+import theme from './theme'
+
 const { persistor, store } = configureStore()
 
 ReactDOM.render(
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
-      <App />
+      <MuiThemeProvider theme={theme}>
+        <App />
+      </MuiThemeProvider>
     </PersistGate>
   </Provider>,
   document.getElementById('root')

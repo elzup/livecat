@@ -3,7 +3,7 @@ import * as React from 'react'
 import { LiveArchive, State } from '../../types'
 
 import { connect } from 'react-redux'
-import { getLiveArchive } from '../LiveArchiveById/selectors'
+import ArchiveList from '../ArchiveList'
 import { syncRecording } from '../Recorder/operations'
 import RecordingControler from '../Recorder/RecorderControler'
 import SpeechArea from '../SpeechArea'
@@ -26,6 +26,7 @@ class MainPage extends React.Component<Props> {
         <h4>SpeechArea</h4>
         {liveArchive === null ? <SpeechArea /> : <p>{liveArchive.id}</p>}
         <RecordingControler />
+        <ArchiveList />
       </div>
     )
   }

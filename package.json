@@ -4,7 +4,8 @@
   "private": true,
   "homepage": "https://livecat.anozon.me",
   "dependencies": {
-    "@types/lodash": "^4.14.119",
+    "@material-ui/core": "^3.9.0",
+    "@material-ui/icons": "^3.0.2",
     "lodash": "^4.17.11",
     "moment": "^2.23.0",
     "react": "^16.6.3",
@@ -15,6 +16,25 @@
     "redux": "^4.0.1",
     "redux-persist": "^5.10.0",
     "redux-thunk": "^2.3.0"
+  },
+  "devDependencies": {
+    "@types/jest": "23.3.10",
+    "@types/node": "10.12.12",
+    "@types/react": "16.7.13",
+    "@types/react-dom": "16.0.11",
+    "@types/react-redux": "^6.0.11",
+    "@types/lodash": "^4.14.119",
+    "@types/recharts": "^1.1.6",
+    "husky": "^1.2.1",
+    "lint-staged": "^8.1.0",
+    "prettier": "^1.15.3",
+    "tslint": "^5.12.0",
+    "tslint-config-prettier": "^1.17.0",
+    "tslint-plugin-prettier": "^2.0.1",
+    "tslint-react": "^3.6.0",
+    "typescript": "3.2.2",
+    "typescript-fsa": "^3.0.0-beta-2",
+    "typescript-fsa-reducers": "^1.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -44,23 +64,5 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ],
-  "devDependencies": {
-    "@types/jest": "23.3.10",
-    "@types/node": "10.12.12",
-    "@types/react": "16.7.13",
-    "@types/react-dom": "16.0.11",
-    "@types/react-redux": "^6.0.11",
-    "@types/recharts": "^1.1.6",
-    "husky": "^1.2.1",
-    "lint-staged": "^8.1.0",
-    "prettier": "^1.15.3",
-    "tslint": "^5.12.0",
-    "tslint-config-prettier": "^1.17.0",
-    "tslint-plugin-prettier": "^2.0.1",
-    "tslint-react": "^3.6.0",
-    "typescript": "3.2.2",
-    "typescript-fsa": "^3.0.0-beta-2",
-    "typescript-fsa-reducers": "^1.1.0"
-  }
+  ]
 }
