@@ -2,6 +2,7 @@ import { connect } from 'react-redux'
 
 import { State } from '../../types'
 
+import { Button } from '@material-ui/core'
 import * as React from 'react'
 import { startRecording, stopRecording } from './operations'
 import { getIsRecording } from './selectors'
@@ -17,14 +18,24 @@ const RecordingControler: React.SFC<Props> = (props: Props) => {
     return (
       <div>
         <h5>{'レコーディング中'}</h5>
-        <button onClick={props.stopRecording}>ストップ</button>
+        <Button color="primary" disabled onClick={props.startRecording}>
+          スタート
+        </Button>
+        <Button color="primary" onClick={props.stopRecording}>
+          ストップ
+        </Button>
       </div>
     )
   }
   return (
     <div>
       <h5>{'待機中'}</h5>
-      <button onClick={props.startRecording}>スタート</button>
+      <Button color="primary" onClick={props.startRecording}>
+        スタート
+      </Button>
+      <Button color="primary" disabled onClick={props.stopRecording}>
+        ストップ
+      </Button>
     </div>
   )
 }

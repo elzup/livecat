@@ -1,3 +1,5 @@
+import { MenuItem } from '@material-ui/core'
+import { Select } from '@material-ui/core'
 import moment from 'moment'
 import * as React from 'react'
 import {
@@ -42,9 +44,14 @@ const SpeechArea: React.SFC<Props> = (props: Props) => {
         </BarChart>
       </div>
 
-      <button onClick={() => props.onSelectGraph('3hour')}>3hour</button>
-      <button onClick={() => props.onSelectGraph('1hour')}>1hour</button>
-      <button onClick={() => props.onSelectGraph('30min')}>30min</button>
+      <Select
+        value={props.selectedGraph}
+        onChange={e => props.onSelectGraph(e.target.value as GraphType)}
+      >
+        <MenuItem value={'3hour'}>3hour</MenuItem>
+        <MenuItem value={'1hour'}>1hour</MenuItem>
+        <MenuItem value={'30min'}>30min</MenuItem>
+      </Select>
     </div>
   )
 }
