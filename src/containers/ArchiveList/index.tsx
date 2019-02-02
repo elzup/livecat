@@ -9,8 +9,8 @@ import { List } from '@material-ui/core'
 import { Divider } from '@material-ui/core'
 import { Folder } from '@material-ui/icons'
 import { connect } from 'react-redux'
-import { getLiveArchiveList } from '../LiveArchiveById/selectors'
-import { selectLiveArchive } from '../MainPage/operations'
+import { getLiveArchiveList } from '../../store/LiveArchiveById/selectors'
+import { selectLiveArchive } from '../../store/MainPage/operations'
 
 type Props = {
   liveArchives: LiveArchive[]

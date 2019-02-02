@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux'
-import { reducer as graphDataById } from './containers/GraphDataById/reducer'
-import { reducer as liveArchiveById } from './containers/LiveArchiveById/reducer'
-import { reducer as logById } from './containers/LogById/reducer'
-import { reducer as MainPage } from './containers/MainPage/reducer'
-import { reducer as recorder } from './containers/Recorder/reducer'
-import { reducer as speechArea } from './containers/SpeechArea/reducer'
+import { reducer as graphDataById } from './store/GraphDataById/reducer'
+import { reducer as liveArchiveById } from './store/LiveArchiveById/reducer'
+import { reducer as logById } from './store/LogById/reducer'
+import { reducer as MainPage } from './store/MainPage/reducer'
+import { reducer as recorder } from './store/Recorder/reducer'
+import { reducer as speechArea } from './store/SpeechArea/reducer'
 import { State } from './types'
 
 export const rootReducer = combineReducers<State>({

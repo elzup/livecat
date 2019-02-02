@@ -3,11 +3,11 @@ import * as React from 'react'
 import { LiveArchive, State } from '../../types'
 
 import { connect } from 'react-redux'
+import { getSelectedLiveArchive } from '../../store/MainPage/selectors'
+import { syncRecording } from '../../store/Recorder/operations'
 import ArchiveList from '../ArchiveList'
-import { syncRecording } from '../Recorder/operations'
-import RecordingControler from '../Recorder/RecorderControler'
 import SpeechArea from '../SpeechArea'
-import { getSelectedLiveArchive } from './selectors'
+import RecordingControler from './RecordingControler'
 
 type Props = {
   liveArchive: LiveArchive | null

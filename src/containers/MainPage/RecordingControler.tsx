@@ -4,8 +4,8 @@ import { State } from '../../types'
 
 import { Button } from '@material-ui/core'
 import * as React from 'react'
-import { startRecording, stopRecording } from './operations'
-import { getIsRecording } from './selectors'
+import { startRecording, stopRecording } from '../../store/Recorder/operations'
+import { getIsRecording } from '../../store/Recorder/selectors'
 
 export type Props = {
   isRecording: boolean
