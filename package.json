@@ -26,7 +26,7 @@
     "@types/lodash": "4.14.119",
     "@types/recharts": "1.1.6",
     "husky": "1.2.1",
-    "lint-staged": "8.1.0",
+    "lint-staged": "9.5.0",
     "prettier": "1.15.3",
     "tslint": "5.12.0",
     "tslint-config-prettier": "1.17.0",
