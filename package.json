@@ -18,11 +18,11 @@
     "redux-thunk": "2.3.0"
   },
   "devDependencies": {
-    "@types/jest": "23.3.10",
+    "@types/jest": "25.2.2",
     "@types/node": "10.12.12",
     "@types/react": "16.7.13",
     "@types/react-dom": "16.0.11",
-    "@types/react-redux": "6.0.11",
+    "@types/react-redux": "7.1.8",
     "@types/lodash": "4.14.119",
     "@types/recharts": "1.1.6",
     "husky": "1.2.1",
