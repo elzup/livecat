@@ -4,8 +4,8 @@
   "private": true,
   "homepage": "https://livecat.anozon.me",
   "dependencies": {
-    "@material-ui/core": "3.9.1",
-    "@material-ui/icons": "3.0.2",
+    "@material-ui/core": "4.9.14",
+    "@material-ui/icons": "4.9.1",
     "lodash": "4.17.15",
     "moment": "2.23.0",
     "react": "16.7.0",
