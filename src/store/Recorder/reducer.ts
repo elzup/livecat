@@ -11,7 +11,7 @@ const initialState = {
   startTime: 0,
 }
 
-export const reducer = reducerWithInitialState(initialState).case(
+export const reducer = reducerWithInitialState<State>(initialState).case(
   actions.updateRecording,
   (state, payload) => {
     return { ...state, ...payload }

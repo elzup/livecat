@@ -11,7 +11,7 @@ const initialState: State = {
   selectedGraph: '30min',
 }
 
-export const reducer = reducerWithInitialState(initialState)
+export const reducer = reducerWithInitialState<State>(initialState)
   .case(actions.updateLastText, (state, lastText) => {
     return { ...state, lastText }
   })

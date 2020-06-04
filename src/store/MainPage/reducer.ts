@@ -9,7 +9,7 @@ const initialState: State = {
   selectedLiveId: null,
 }
 
-export const reducer = reducerWithInitialState(initialState).case(
+export const reducer = reducerWithInitialState<State>(initialState).case(
   actions.updateMainPage,
   (state, payload) => {
     return {

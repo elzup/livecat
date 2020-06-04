@@ -7,9 +7,9 @@ export interface State {
   [id: string]: GraphData
 }
 
-const initialState: State = {} as State
+const initialState: State = {}
 
-export const reducer = reducerWithInitialState(initialState)
+export const reducer = reducerWithInitialState<State>(initialState)
   .case(actions.updateGraphData, (state, { id, data }) => {
     return {
       ...state,

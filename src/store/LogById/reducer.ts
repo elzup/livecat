@@ -7,9 +7,9 @@ export interface State {
   [id: string]: { [id: string]: Log }
 }
 
-const initialState: State = {} as State
+const initialState: State = {}
 
-export const reducer = reducerWithInitialState(initialState)
+export const reducer = reducerWithInitialState<State>(initialState)
   .case(actions.updateLog, (state, { liveId, logs }) => {
     return {
       ...state,

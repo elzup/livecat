@@ -7,9 +7,9 @@ export interface State {
   [id: string]: Live
 }
 
-const initialState = {} as State
+const initialState = {}
 
-export const reducer = reducerWithInitialState(initialState).case(
+export const reducer = reducerWithInitialState<State>(initialState).case(
   actions.registerLive,
   (state, live) => {
     return {
