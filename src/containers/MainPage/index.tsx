@@ -1,16 +1,16 @@
 import * as React from 'react'
 
-import { LiveArchive, State } from '../../types'
+import { Live, State } from '../../types'
 
 import { connect } from 'react-redux'
-import { getSelectedLiveArchive } from '../../store/MainPage/selectors'
+import { getSelectedLive } from '../../store/MainPage/selectors'
 import { syncRecording } from '../../store/Recorder/operations'
 import ArchiveList from '../ArchiveList'
 import SpeechArea from '../SpeechArea'
 import RecordingControler from './RecordingControler'
 
 type Props = {
-  liveArchive: LiveArchive | null
+  live: Live | null
   syncRecording: () => void
 }
 
@@ -20,11 +20,11 @@ class MainPage extends React.Component<Props> {
   }
   render() {
     const { props } = this
-    const { liveArchive } = props
+    const { live } = props
     return (
       <div>
         <h4>SpeechArea</h4>
-        {liveArchive === null ? <SpeechArea /> : <p>{liveArchive.id}</p>}
+        {live === null ? <SpeechArea /> : <p>{live.id}</p>}
         <RecordingControler />
         <ArchiveList />
       </div>
@@ -34,14 +34,14 @@ class MainPage extends React.Component<Props> {
 
 type OProps = {}
 type SProps = {
-  liveArchive: LiveArchive | null
+  live: Live | null
 }
 type DProps = {
   syncRecording: () => void
 }
 export default connect<SProps, DProps, OProps, State>(
   (state, oprops) => ({
-    liveArchive: getSelectedLiveArchive(state),
+    live: getSelectedLive(state),
   }),
   { syncRecording }
 )(MainPage)

@@ -1,5 +1,5 @@
 import actionCreatorFactory from 'typescript-fsa'
-import { LiveArchive, MainPageState } from '../../types'
+import { Live, MainPageState } from '../../types'
 
 const actionCreator = actionCreatorFactory()
 

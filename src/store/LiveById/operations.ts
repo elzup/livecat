@@ -1,5 +1,5 @@
 import moment from 'moment'
-import { LiveArchive, Log, ThunkAction } from '../../types'
+import { Live, Log, ThunkAction } from '../../types'
 import { resetGraphData } from '../GraphDataById/actions'
 import {
   get1HourGraphData,
@@ -8,7 +8,7 @@ import {
 } from '../GraphDataById/selectors'
 import { resetLog } from '../LogById/actions'
 import { getStartTime } from '../Recorder/selectors'
-import { registerLiveArchive } from './actions'
+import { registerLive } from './actions'
 
 export const archiveLive = (): ThunkAction => {
   return async (dispatch, getState) => {
@@ -16,7 +16,7 @@ export const archiveLive = (): ThunkAction => {
     const state = getState()
     const startTime = getStartTime(state)
     const m = moment(startTime)
-    const liveArchive: LiveArchive = {
+    const live: Live = {
       id: m.format('YYYY-MM-DD HH:mm:ss'),
       label: m.format('YYYY-MM-DD HH:mm:ss'),
       startTime,
@@ -28,6 +28,6 @@ export const archiveLive = (): ThunkAction => {
     }
     dispatch(resetGraphData())
     dispatch(resetLog())
-    dispatch(registerLiveArchive(liveArchive))
+    dispatch(registerLive(live))
   }
 }

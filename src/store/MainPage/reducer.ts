@@ -6,7 +6,7 @@ import * as actions from './actions'
 export type State = MainPageState
 
 const initialState: State = {
-  selectedLiveArchiveId: null,
+  selectedLiveId: null,
 }
 
 export const reducer = reducerWithInitialState(initialState).case(

@@ -49,7 +49,7 @@ export type RecorderState = {
   startTime: number
 }
 
-export type LiveArchive = {
+export type Live = {
   id: string
   label: string
   startTime: number
@@ -66,5 +66,5 @@ export type SpeechArea = {
 }
 
 export type MainPageState = {
-  selectedLiveArchiveId: string | null
+  selectedLiveId: string | null
 }

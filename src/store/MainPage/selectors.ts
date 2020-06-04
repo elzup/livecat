@@ -1,15 +1,15 @@
 import _ from 'lodash'
-import { LiveArchive, State } from '../../types'
-import { getLiveArchive } from '../LiveArchiveById/selectors'
+import { Live, State } from '../../types'
+import { getLive } from '../LiveById/selectors'
 
-export const getSelectedLiveArchiveId = (state: State): string | null => {
-  return state.MainPage.selectedLiveArchiveId
+export const getSelectedLiveId = (state: State): string | null => {
+  return state.MainPage.selectedLiveId
 }
 
-export const getSelectedLiveArchive = (state: State): LiveArchive | null => {
-  const id = getSelectedLiveArchiveId(state)
+export const getSelectedLive = (state: State): Live | null => {
+  const id = getSelectedLiveId(state)
   if (id === null) {
     return null
   }
-  return getLiveArchive(state, id)
+  return getLive(state, id)
 }

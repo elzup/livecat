@@ -4,16 +4,19 @@ import { Log } from '../../types'
 import * as actions from './actions'
 
 export interface State {
-  [id: string]: Log
+  [id: string]: { [id: string]: Log }
 }
 
-const initialState: State = {} as { [id: number]: Log }
+const initialState: State = {} as State
 
 export const reducer = reducerWithInitialState(initialState)
-  .case(actions.updateLog, (state, objects) => {
+  .case(actions.updateLog, (state, { liveId, logs }) => {
     return {
       ...state,
-      ..._.keyBy(objects, 'id'),
+      [liveId]: {
+        ...state[liveId],
+        ..._.keyBy(logs, 'id'),
+      },
     }
   })
   .case(actions.resetLog, () => initialState)

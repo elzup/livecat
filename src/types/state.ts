@@ -1,5 +1,5 @@
 import { State as GraphDataById } from '../store/GraphDataById/reducer'
-import { State as LiveArchiveById } from '../store/LiveArchiveById/reducer'
+import { State as LiveById } from '../store/LiveById/reducer'
 import { State as LogById } from '../store/LogById/reducer'
 import { State as MainPage } from '../store/MainPage/reducer'
 import { State as Recorder } from '../store/Recorder/reducer'
@@ -10,6 +10,6 @@ export type AppState = {
   logById: LogById
   recorder: Recorder
   MainPage: MainPage
-  liveArchiveById: LiveArchiveById
+  liveById: LiveById
   graphDataById: GraphDataById
 }

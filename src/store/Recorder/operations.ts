@@ -1,6 +1,6 @@
 import moment from 'moment'
 import { ThunkAction } from '../../types'
-import { archiveLive } from '../LiveArchiveById/operations'
+import { archiveLive } from '../LiveById/operations'
 import { recording, recordingStop } from '../SpeechArea/operations'
 import { updateRecording } from './actions'
 import { getIsRecording } from './selectors'

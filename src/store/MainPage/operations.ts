@@ -1,10 +1,8 @@
 import { ThunkAction } from '../../types'
 import { updateMainPage } from './actions'
 
-export const selectLiveArchive = (
-  selectedLiveArchiveId: string | null
-): ThunkAction => {
+export const selectLive = (selectedLiveId: string | null): ThunkAction => {
   return (dispatch, getState) => {
-    dispatch(updateMainPage({ selectedLiveArchiveId }))
+    dispatch(updateMainPage({ selectedLiveId }))
   }
 }

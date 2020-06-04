@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-import { LiveArchive, State } from '../../types'
+import { Live, State } from '../../types'
 
 import { ListItemText } from '@material-ui/core'
 import { ListItemIcon } from '@material-ui/core'
@@ -9,16 +9,16 @@ import { List } from '@material-ui/core'
 import { Divider } from '@material-ui/core'
 import { Folder } from '@material-ui/icons'
 import { connect } from 'react-redux'
-import { getLiveArchiveList } from '../../store/LiveArchiveById/selectors'
-import { selectLiveArchive } from '../../store/MainPage/operations'
+import { getLiveList } from '../../store/LiveById/selectors'
+import { selectLive } from '../../store/MainPage/operations'
 
 type Props = {
-  liveArchives: LiveArchive[]
+  lives: Live[]
   onClickArchive: (id: string | null) => void
 }
 
 const ArchiveList: React.SFC<Props> = props => {
-  const { liveArchives } = props
+  const { lives } = props
   return (
     <div>
       <List>
@@ -29,7 +29,7 @@ const ArchiveList: React.SFC<Props> = props => {
           <ListItemText primary={'新規 Live'} />
         </ListItem>
         <Divider />
-        {liveArchives.map(archive => (
+        {lives.map(archive => (
           <ListItem button onClick={() => props.onClickArchive(archive.id)}>
             <ListItemIcon>
               <Folder />
@@ -44,14 +44,14 @@ const ArchiveList: React.SFC<Props> = props => {
 
 type OProps = {}
 type SProps = {
-  liveArchives: LiveArchive[]
+  lives: Live[]
 }
 type DProps = {
   onClickArchive: (id: string | null) => void
 }
 export default connect<SProps, DProps, OProps, State>(
   (state, oprops) => ({
-    liveArchives: getLiveArchiveList(state),
+    lives: getLiveList(state),
   }),
-  { onClickArchive: selectLiveArchive }
+  { onClickArchive: selectLive }
 )(ArchiveList)

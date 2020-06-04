@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
 import { reducer as graphDataById } from './store/GraphDataById/reducer'
-import { reducer as liveArchiveById } from './store/LiveArchiveById/reducer'
+import { reducer as liveById } from './store/LiveById/reducer'
 import { reducer as logById } from './store/LogById/reducer'
 import { reducer as MainPage } from './store/MainPage/reducer'
 import { reducer as recorder } from './store/Recorder/reducer'
@@ -13,5 +13,5 @@ export const rootReducer = combineReducers<State>({
   recorder,
   MainPage,
   graphDataById,
-  liveArchiveById,
+  liveById,
 })

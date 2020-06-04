@@ -1,20 +1,20 @@
 import _ from 'lodash'
 import { reducerWithInitialState } from 'typescript-fsa-reducers'
-import { LiveArchive } from '../../types'
+import { Live } from '../../types'
 import * as actions from './actions'
 
 export interface State {
-  [id: string]: LiveArchive
+  [id: string]: Live
 }
 
 const initialState = {} as State
 
 export const reducer = reducerWithInitialState(initialState).case(
-  actions.registerLiveArchive,
-  (state, liveArchive) => {
+  actions.registerLive,
+  (state, live) => {
     return {
       ...state,
-      [liveArchive.id]: liveArchive,
+      [live.id]: live,
     }
   }
 )
